@@ -1,16 +1,19 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
 const backgroundImage = require("./assets/background-image.jpg");
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={backgroundImage} style={styles.image} />
-      </View>
-      <Text style={styles.text}>Welcome to Starseeker</Text>
-      <StatusBar style="auto" />
+      <ImageBackground
+        source={backgroundImage}
+        resizeMode="cover"
+        style={styles.image}
+      >
+        <Text style={styles.text}>
+          Welcome to <Text style={styles.boldText}>Starseeker</Text>
+        </Text>
+      </ImageBackground>
     </View>
   );
 }
@@ -18,19 +21,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
   },
   image: {
     flex: 1,
-    resizeMode: "center",
-    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
-
   text: {
-    color: "#fff",
-    fontSize: 16,
-    display: "flex",
-    height: "80%",
-    borderColor: "red",
+    color: "white",
+    fontSize: 42,
+    lineHeight: 84,
+    textAlign: "center",
+    marginBottom: 300,
+  },
+  boldText: {
+    fontWeight: "bold",
   },
 });
