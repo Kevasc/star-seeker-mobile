@@ -1,3 +1,4 @@
+import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
 const backgroundImage = require("./assets/background-image.jpg");
@@ -14,6 +15,7 @@ export default function App() {
           Welcome to <Text style={styles.boldText}>Starseeker</Text>
         </Text>
       </ImageBackground>
+      <StatusBar style="auto" />
     </View>
   );
 }
