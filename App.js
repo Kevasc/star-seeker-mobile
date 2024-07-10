@@ -20,10 +20,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
-  imageContainer: {
+  image: {
     flex: 1,
-    justifyContent: "center",
+    resizeMode: "center",
+    height: "100%",
   },
+
   text: {
     color: "#fff",
     fontSize: 16,
