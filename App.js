@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={{ color: "#fff" }}>Welcome to Starseeker</Text>
+      <Text style={{ color: "#fff", fontSize: "16px" }}>
+        Welcome to Starseeker
+      </Text>
       <StatusBar style="auto" />
     </View>
   );
