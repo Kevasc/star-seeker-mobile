@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Pressable,
+} from "react-native";
+import Button from "./components/Button";
 
 const backgroundImage = require("./assets/background-image.jpg");
 
@@ -16,6 +23,10 @@ export default function App() {
         </Text>
       </ImageBackground>
       <StatusBar style="auto" />
+      <View style={styles.footerContainer}>
+        <Button label="Gate information" />
+        <Button label="Book a flight" />
+      </View>
     </View>
   );
 }
@@ -38,5 +49,10 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontWeight: "bold",
+  },
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: "center",
+    color: "black",
   },
 });
