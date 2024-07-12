@@ -3,10 +3,7 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 export default function Button({ label }) {
   return (
     <View style={styles.buttonContainer}>
-      <Pressable
-        style={styles.button}
-        onPress={() => alert("Take me on an adventure...")}
-      >
+      <Pressable style={styles.button}>
         <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
     </View>
@@ -22,18 +19,18 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   button: {
-    borderRadius: 10,
-    width: "100%",
-    height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    color: "black",
+    backgroundColor: "white",
   },
   buttonIcon: {
     paddingRight: 8,
   },
   buttonLabel: {
-    color: "#000000",
     fontSize: 16,
   },
 });
