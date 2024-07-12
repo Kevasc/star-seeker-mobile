@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "react-native";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ const backgroundImage = require("./assets/background-image.jpg");
 export default function App() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#ffffff" />
       <ImageBackground
         source={backgroundImage}
         resizeMode="cover"
@@ -22,7 +23,6 @@ export default function App() {
           Welcome to <Text style={styles.boldText}>Starseeker</Text>
         </Text>
       </ImageBackground>
-      <StatusBar style="auto" />
       <View style={styles.footerContainer}>
         <Button label="Gate information" />
         <Button label="Book a flight" />
