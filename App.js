@@ -7,27 +7,30 @@ import {
   ScrollView,
 } from "react-native";
 import Button from "./components/Button";
+import { NavigationContainer } from "@react-navigation/native";
 
 const backgroundImage = require("./assets/background-image.jpg");
 
 export default function App() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#ffffff" />
-      <ImageBackground
-        source={backgroundImage}
-        resizeMode="cover"
-        style={styles.image}
-      >
-        <Text style={styles.text}>
-          Welcome to <Text style={styles.boldText}>Starseeker</Text>
-        </Text>
-      </ImageBackground>
-      <View style={styles.footerContainer}>
-        <Button label="Gate information" />
-        <Button label="Book a flight" />
-      </View>
-    </ScrollView>
+    <NavigationContainer>
+      <ScrollView contentContainerStyle={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor="#ffffff" />
+        <ImageBackground
+          source={backgroundImage}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          <Text style={styles.text}>
+            Welcome to <Text style={styles.boldText}>Starseeker</Text>
+          </Text>
+        </ImageBackground>
+        <View style={styles.footerContainer}>
+          <Button label="Gate information" />
+          <Button label="Book a flight" />
+        </View>
+      </ScrollView>
+    </NavigationContainer>
   );
 }
 
