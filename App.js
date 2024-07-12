@@ -4,7 +4,7 @@ import {
   Text,
   View,
   ImageBackground,
-  Pressable,
+  ScrollView,
 } from "react-native";
 import Button from "./components/Button";
 
@@ -12,7 +12,7 @@ const backgroundImage = require("./assets/background-image.jpg");
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <ImageBackground
         source={backgroundImage}
         resizeMode="cover"
@@ -27,32 +27,35 @@ export default function App() {
         <Button label="Gate information" />
         <Button label="Book a flight" />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
   },
   image: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    height: 500,
   },
   text: {
     color: "white",
     fontSize: 42,
     lineHeight: 84,
+    padding: 50,
     textAlign: "center",
-    marginBottom: 300,
   },
   boldText: {
     fontWeight: "bold",
   },
   footerContainer: {
     flex: 1 / 3,
+    height: 600,
     alignItems: "center",
-    color: "black",
+    color: "#FFFFFF",
+    backgroundColor: "#000000",
   },
 });
