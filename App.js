@@ -12,30 +12,44 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const backgroundImage = require("./assets/background-image.jpg");
 
+const HomeScreen = () => {
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#ffffff" />
+      <ImageBackground
+        source={backgroundImage}
+        resizeMode="cover"
+        style={styles.image}
+      >
+        <Text style={styles.text}>
+          Welcome to <Text style={styles.boldText}>Starseeker</Text>
+        </Text>
+      </ImageBackground>
+      <View style={styles.footerContainer}>
+        <Button label="Gate information" />
+        <Button label="Book a flight" />
+      </View>
+    </ScrollView>
+  );
+};
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
-  const MyStack = () => {
-    return (
-      <NavigationContainer>
-        <ScrollView contentContainerStyle={styles.container}>
-          <StatusBar barStyle="light-content" backgroundColor="#ffffff" />
-          <ImageBackground
-            source={backgroundImage}
-            resizeMode="cover"
-            style={styles.image}
-          >
-            <Text style={styles.text}>
-              Welcome to <Text style={styles.boldText}>Starseeker</Text>
-            </Text>
-          </ImageBackground>
-          <View style={styles.footerContainer}>
-            <Button label="Gate information" />
-            <Button label="Book a flight" />
-          </View>
-        </ScrollView>
-      </NavigationContainer>
-    );
-  };
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        {/* Add more screens here */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
+
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
