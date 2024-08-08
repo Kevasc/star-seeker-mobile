@@ -9,10 +9,14 @@ import {
 import Button from "./components/Button";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NativeBaseProvider, Box } from "native-base";
+import { NativeBaseProvider } from "native-base";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+// Import background image
 const backgroundImage = require("./assets/background-image.jpg");
 
+// Define the Tab Navigator
+const Tab = createBottomTabNavigator();
 const HomeScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -22,18 +26,38 @@ const HomeScreen = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={styles.text}>
+        {/* <Text style={styles.text}>
           Welcome to <Text style={styles.boldText}>Starseeker</Text>
-        </Text>
+        </Text> */}
       </ImageBackground>
-      <View style={styles.footerContainer}>
+      {/* <View style={styles.footerContainer}>
         <Button label="Gate information" />
         <Button label="Book a flight" />
-      </View>
+      </View> */}
     </ScrollView>
   );
 };
 
+// Define SettingsScreen for the tab navigation
+const GatesScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Gates Screen</Text>
+    </View>
+  );
+};
+
+// Define Tab Navigator
+const MyTabs = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Gates" component={GatesScreen} />
+    </Tab.Navigator>
+  );
+};
+
+// Define Stack Navigator
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -42,11 +66,11 @@ export default function App() {
       <NativeBaseProvider>
         <Stack.Navigator>
           <Stack.Screen
-            name="Home"
-            component={HomeScreen}
+            name="Tabs"
+            component={MyTabs}
             options={{ headerShown: false }}
           />
-          {/* Add more screens here */}
+          {/* Additional screens can be added here */}
         </Stack.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>
@@ -59,9 +83,9 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "cover",
     alignItems: "center",
-    height: 500,
+    height: 850,
   },
   text: {
     color: "white",
@@ -77,7 +101,6 @@ const styles = StyleSheet.create({
     flex: 1 / 3,
     height: 600,
     alignItems: "center",
-    color: "#FFFFFF",
     backgroundColor: "#000000",
   },
 });
