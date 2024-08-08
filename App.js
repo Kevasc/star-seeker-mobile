@@ -6,7 +6,6 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
-import Button from "./components/Button";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
@@ -40,11 +39,7 @@ const HomeScreen = () => {
 
 // Define SettingsScreen for the tab navigation
 const GatesScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Gates Screen</Text>
-    </View>
-  );
+  return <View style={styles.container}></View>;
 };
 
 // Define Tab Navigator
@@ -88,7 +83,7 @@ const styles = StyleSheet.create({
     height: 850,
   },
   text: {
-    color: "white",
+    color: "#B284BE",
     fontSize: 42,
     lineHeight: 84,
     padding: 50,
@@ -101,6 +96,6 @@ const styles = StyleSheet.create({
     flex: 1 / 3,
     height: 600,
     alignItems: "center",
-    backgroundColor: "#000000",
+    backgroundColor: "#B284BE",
   },
 });
