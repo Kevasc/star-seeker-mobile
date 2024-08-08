@@ -42,12 +42,21 @@ const GatesScreen = () => {
   return <View style={styles.container}></View>;
 };
 
+const JourneyScreen = () => {
+  return <View style={styles.container}></View>;
+};
 // Define Tab Navigator
 const MyTabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: { backgroundColor: "black" },
+        // Set the background color
+      }}
+    >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Gates" component={GatesScreen} />
+      <Tab.Screen name="Book your journey" component={JourneyScreen} />
     </Tab.Navigator>
   );
 };
