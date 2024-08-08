@@ -9,13 +9,14 @@ import {
 import Button from "./components/Button";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NativeBaseProvider, Box } from "native-base";
 
 const backgroundImage = require("./assets/background-image.jpg");
 
 const HomeScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#ffffff" />
+      <StatusBar barStyle="default" backgroundColor="#ffffff" />
       <ImageBackground
         source={backgroundImage}
         resizeMode="cover"
