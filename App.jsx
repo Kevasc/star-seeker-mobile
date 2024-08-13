@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import GateScreen from "./GateScreen";
 
 // Import background image
 const backgroundImage = require("./assets/background-image.jpg");
@@ -37,9 +38,6 @@ const HomeScreen = () => {
 };
 
 // Define SettingsScreen for the tab navigation
-const GatesScreen = () => {
-  return <View style={styles.container}></View>;
-};
 
 const JourneyScreen = () => {
   return <View style={styles.container}></View>;
@@ -54,7 +52,7 @@ const MyTabs = () => {
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Gates" component={GatesScreen} />
+      <Tab.Screen name="Gates" component={GateScreen} />
       <Tab.Screen name="Book your journey" component={JourneyScreen} />
     </Tab.Navigator>
   );
