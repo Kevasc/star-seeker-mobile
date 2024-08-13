@@ -1,5 +1,11 @@
 import { StatusBar } from "react-native";
-import { StyleSheet, Text, ImageBackground, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  ImageBackground,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
@@ -14,21 +20,24 @@ const backgroundImage = require("./assets/background-image.jpg");
 const Tab = createBottomTabNavigator();
 const HomeScreen = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar barStyle="dark-content" tabBarStyle="" />
-      <ImageBackground
-        source={backgroundImage}
-        resizeMode="cover"
-        style={styles.image}
-      >
-        <Text style={styles.text}>
-          Welcome to{" "}
-          <Text style={styles.boldText} fontSize={styles.text}>
-            Starseeker
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <StatusBar barStyle="dark-content" />
+
+        <ImageBackground
+          source={backgroundImage}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          <Text style={styles.text}>
+            Welcome to{" "}
+            <Text style={styles.boldText} fontSize={styles.text}>
+              Starseeker
+            </Text>
           </Text>
-        </Text>
-      </ImageBackground>
-    </ScrollView>
+        </ImageBackground>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -37,8 +46,10 @@ const MyTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { backgroundColor: "black" },
-        // Set the background color
+        tabBarStyle: {
+          backgroundColor: "#000000",
+        },
+        headerShown: false,
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -55,13 +66,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <NativeBaseProvider>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Tabs"
-            component={MyTabs}
-            options={{ headerShown: false }}
-          />
-          {/* Additional screens can be added here */}
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Tabs" component={MyTabs} />
         </Stack.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>
