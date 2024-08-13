@@ -11,7 +11,7 @@ const GateScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text>test</Text>
+        <Text style={styles.text}>test</Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
     lineHeight: 84,
     paddingTop: 150,
     textAlign: "center",
+    // borderColor: " #4169E1 ", // Set your border color here
+    // borderWidth: 2, // Set your border width here
+    // borderStyle: "solid", // Optional: solid is default
   },
   boldText: {
     fontWeight: "bold",
