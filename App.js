@@ -32,10 +32,6 @@ const HomeScreen = () => {
           </Text>
         </Text>
       </ImageBackground>
-      {/* <View style={styles.footerContainer}>
-        <Button label="Gate information" />
-        <Button label="Book a flight" />
-      </View> */}
     </ScrollView>
   );
 };
