@@ -19,15 +19,18 @@ const Tab = createBottomTabNavigator();
 const HomeScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar barStyle="default" backgroundColor="#ffffff" />
+      <StatusBar barStyle="default" />
       <ImageBackground
         source={backgroundImage}
         resizeMode="cover"
         style={styles.image}
       >
-        {/* <Text style={styles.text}>
-          Welcome to <Text style={styles.boldText}>Starseeker</Text>
-        </Text> */}
+        <Text style={styles.text}>
+          Welcome to{" "}
+          <Text style={styles.boldText} fontSize={styles.text}>
+            Starseeker
+          </Text>
+        </Text>
       </ImageBackground>
       {/* <View style={styles.footerContainer}>
         <Button label="Gate information" />
@@ -89,13 +92,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "cover",
     alignItems: "center",
-    height: 850,
+    height: 790,
   },
   text: {
-    color: "#B284BE",
-    fontSize: 42,
+    color: "#ffffff",
+    fontSize: 20,
     lineHeight: 84,
-    padding: 50,
+    paddingTop: 150,
     textAlign: "center",
   },
   boldText: {
