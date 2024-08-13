@@ -1,16 +1,11 @@
 import { StatusBar } from "react-native";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, ImageBackground, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import GateScreen from "./GateScreen";
+import JourneyScreen from "./JourneyScreen";
 
 // Import background image
 const backgroundImage = require("./assets/background-image.jpg");
@@ -20,7 +15,7 @@ const Tab = createBottomTabNavigator();
 const HomeScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar barStyle="default" />
+      <StatusBar barStyle="dark-content" tabBarStyle="" />
       <ImageBackground
         source={backgroundImage}
         resizeMode="cover"
@@ -37,11 +32,6 @@ const HomeScreen = () => {
   );
 };
 
-// Define SettingsScreen for the tab navigation
-
-const JourneyScreen = () => {
-  return <View style={styles.container}></View>;
-};
 // Define Tab Navigator
 const MyTabs = () => {
   return (

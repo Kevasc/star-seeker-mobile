@@ -6,12 +6,11 @@ import {
   ScrollView,
 } from "react-native";
 
-const GateScreen = () => {
+const JourneyScreen = () => {
   return (
     <ScrollView>
       <Text>test</Text>
     </ScrollView>
   );
 };
-
-export default GateScreen;
+export default JourneyScreen;
