@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,8 +7,48 @@ import {
   ScrollView,
   SafeAreaView,
 } from "react-native";
+import { getDepartures } from "./api";
+
 const gatesBackgroundImage = require("./assets/gates-background-image.jpg");
+
 const GateScreen = () => {
+  const [departures, setDepartures] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchDepartures = async () => {
+      try {
+        const data = await getDepartures();
+        if (data) {
+          setDepartures(data);
+        }
+      } catch (error) {
+        setError("Failed to fetch departures.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDepartures();
+  }, []);
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.text}>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  if (error) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.text}>{error}</Text>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -16,12 +57,12 @@ const GateScreen = () => {
           resizeMode="cover"
           style={styles.image}
         >
-          <Text style={styles.text}>
-            Welcome to{" "}
-            <Text style={styles.boldText} fontSize={styles.text}>
-              Starseeker
-            </Text>
-          </Text>
+          <Text style={styles.title}>Departures</Text>
+          {departures.map((departure, index) => (
+            <View key={index} style={styles.departureItem}>
+              <Text style={styles.departureText}>{departure.name}</Text>
+            </View>
+          ))}
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>
@@ -34,28 +75,21 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "cover",
+    justifyContent: "center",
     alignItems: "center",
-    height: 790,
   },
-  text: {
+  title: {
     color: "#ffffff",
-    fontSize: 20,
-    lineHeight: 84,
-    paddingTop: 150,
-    textAlign: "center",
-    borderColor: " #4169E1 ", // Set your border color here
-    borderWidth: 2, // Set your border width here
-    borderStyle: "solid", // Optional: solid is default
-  },
-  boldText: {
+    fontSize: 24,
     fontWeight: "bold",
+    margin: 20,
   },
-  footerContainer: {
-    flex: 1 / 3,
-    height: 600,
-    alignItems: "center",
-    backgroundColor: "#B284BE",
+  departureItem: {
+    marginVertical: 10,
+  },
+  departureText: {
+    color: "#ffffff",
+    fontSize: 18,
   },
 });
 
