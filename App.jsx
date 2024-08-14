@@ -10,8 +10,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import GateScreen from "./GateScreen";
 import JourneyScreen from "./JourneyScreen";
+// import { getDepartures } from "./api/api";
+// import { useEffect } from "react";
+// import { setDepartures } from "./redux/starSeekerSlice";
+// import { useDispatch } from "react-redux";
 
 // Import background image
 const backgroundImage = require("./assets/background-image.jpg");
@@ -22,7 +27,11 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.container}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar
+          barStyle="default"
+          backgroundColor="#000000"
+          translucent={false}
+        />
         <ImageBackground
           source={backgroundImage}
           resizeMode="cover"
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "cover",
+    justifyContent: "center",
     alignItems: "center",
     height: 790,
   },
