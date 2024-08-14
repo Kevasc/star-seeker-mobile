@@ -10,19 +10,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 import GateScreen from "./GateScreen";
 import JourneyScreen from "./JourneyScreen";
-// import { getDepartures } from "./api/api";
-// import { useEffect } from "react";
-// import { setDepartures } from "./redux/starSeekerSlice";
-// import { useDispatch } from "react-redux";
 
-// Import background image
 const backgroundImage = require("./assets/background-image.jpg");
 
-// Define the Tab Navigator
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator(); // Define the Tab Navigator
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -49,8 +42,8 @@ const HomeScreen = () => {
   );
 };
 
-// Define Tab Navigator
 const MyTabs = () => {
+  // Define Tab screens
   return (
     <Tab.Navigator
       screenOptions={{
@@ -68,8 +61,7 @@ const MyTabs = () => {
   );
 };
 
-// Define Stack Navigator
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator(); // Defines the Stack Navigator
 
 export default function App() {
   return (
