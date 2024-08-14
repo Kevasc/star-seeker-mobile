@@ -23,7 +23,6 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.container}>
         <StatusBar barStyle="dark-content" />
-
         <ImageBackground
           source={backgroundImage}
           resizeMode="cover"
@@ -48,6 +47,7 @@ const MyTabs = () => {
       screenOptions={{
         tabBarStyle: {
           backgroundColor: "#000000",
+          borderTopWidth: 0, // Removes the white border line at the top of the navigation tab bar
         },
         headerShown: false,
       }}
