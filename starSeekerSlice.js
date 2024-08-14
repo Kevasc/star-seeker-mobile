@@ -1,29 +1,26 @@
-// import React from "react";
-// import { View, Text, StyleSheet, ScrollView, SafeAreaView } from "react-native";
+import { createSlice } from "@reduxjs/toolkit";
 
-// const JourneyScreen = () => {
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <ScrollView contentContainerStyle={styles.container}>
-//         <View>
-//           <Text style={styles.text}>Journey Screen Content Here</Text>
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
+export const starSeekerSlice = createSlice({
+  name: "starSeeker",
+  initialState: {
+    departures: [],
+    fromLocation: "",
+    toLocation: "",
+  },
+  reducers: {
+    setDepartures: (state, action) => {
+      state.departures = action.payload;
+    },
+    setFromLocation: (state, action) => {
+      state.fromLocation = action.payload;
+    },
+    setToLocation: (state, action) => {
+      state.toLocation = action.payload;
+    },
+  },
+});
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flexGrow: 1,
-//   },
-//   text: {
-//     color: "#ffffff",
-//     fontSize: 20,
-//     lineHeight: 84,
-//     paddingTop: 150,
-//     textAlign: "center",
-//   },
-// });
+export const { setDepartures, setFromLocation, setToLocation } =
+  starSeekerSlice.actions;
 
-// export default JourneyScreen;
+export default starSeekerSlice.reducer;
