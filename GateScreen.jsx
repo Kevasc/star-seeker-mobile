@@ -1,17 +1,28 @@
 import {
   StyleSheet,
   Text,
-  // View,
-  // ImageBackground,
+  View,
+  ImageBackground,
   ScrollView,
   SafeAreaView,
 } from "react-native";
-
+const gatesBackgroundImage = require("./assets/gates-background-image.jpg");
 const GateScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.text}>test</Text>
+        <ImageBackground
+          source={gatesBackgroundImage}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          <Text style={styles.text}>
+            Welcome to{" "}
+            <Text style={styles.boldText} fontSize={styles.text}>
+              Starseeker
+            </Text>
+          </Text>
+        </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
@@ -33,9 +44,9 @@ const styles = StyleSheet.create({
     lineHeight: 84,
     paddingTop: 150,
     textAlign: "center",
-    // borderColor: " #4169E1 ", // Set your border color here
-    // borderWidth: 2, // Set your border width here
-    // borderStyle: "solid", // Optional: solid is default
+    borderColor: " #4169E1 ", // Set your border color here
+    borderWidth: 2, // Set your border width here
+    borderStyle: "solid", // Optional: solid is default
   },
   boldText: {
     fontWeight: "bold",
