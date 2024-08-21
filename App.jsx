@@ -57,7 +57,7 @@ const MyTabs = () => {
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Gates" component={GateScreen} />
+      <Tab.Screen name="Departures Information" component={GateScreen} />
       <Tab.Screen name="Book your journey" component={JourneyScreen} />
     </Tab.Navigator>
   );
