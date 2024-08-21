@@ -58,11 +58,32 @@ const GateScreen = () => {
           style={styles.image}
         >
           <Text style={styles.title}>Departures</Text>
-          {departures.map((departure, index) => (
-            <View key={index} style={styles.departureItem}>
-              <Text style={styles.departureText}>{departure.name}</Text>
+          <View style={styles.table}>
+            <View style={styles.tableHeader}>
+              <Text style={[styles.tableHeaderText, styles.columnName]}>
+                Destination
+              </Text>
+              <Text style={[styles.tableHeaderText, styles.columnGate]}>
+                Flight Code
+              </Text>
+              <Text style={[styles.tableHeaderText, styles.columnTime]}>
+                Connecting Flights
+              </Text>
             </View>
-          ))}
+            {departures.map((departure, index) => (
+              <View key={index} style={styles.tableRow}>
+                <Text style={[styles.tableText, styles.columnName]}>
+                  {departure.name}
+                </Text>
+                <Text style={[styles.tableText, styles.columnGate]}>
+                  {departure.gate}
+                </Text>
+                <Text style={[styles.tableText, styles.columnTime]}>
+                  {departure.time}
+                </Text>
+              </View>
+            ))}
+          </View>
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>
@@ -90,6 +111,42 @@ const styles = StyleSheet.create({
   departureText: {
     color: "#ffffff",
     fontSize: 18,
+  },
+  table: {
+    width: "100%",
+    paddingHorizontal: 20,
+  },
+  tableHeader: {
+    flexDirection: "row",
+    borderBottomWidth: 5,
+    borderBottomColor: "#ffffff",
+    paddingVertical: 10,
+  },
+  tableHeaderText: {
+    color: "#ffffff",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  tableRow: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ffffff",
+    paddingVertical: 10,
+  },
+  tableText: {
+    color: "#ffffff",
+    fontSize: 16,
+  },
+  columnName: {
+    flex: 2,
+  },
+  columnGate: {
+    flex: 1,
+    textAlign: "center",
+  },
+  columnTime: {
+    flex: 1,
+    textAlign: "right",
   },
 });
 
