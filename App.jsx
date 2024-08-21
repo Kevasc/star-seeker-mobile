@@ -32,9 +32,11 @@ const HomeScreen = () => {
         >
           <Text style={styles.text}>
             Welcome to{" "}
-            <Text style={styles.boldText} fontSize={styles.text}>
+            <Text style={[styles.boldText, { fontSize: styles.text.fontSize }]}>
               Starseeker
             </Text>
+            {"\n"}
+            <Text style={styles.smallText}>Your passport to the cosmos</Text>
           </Text>
         </ImageBackground>
       </ScrollView>
@@ -87,10 +89,14 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#ffffff",
-    fontSize: 20,
-    lineHeight: 84,
-    paddingTop: 150,
+    fontSize: 25,
+    lineHeight: 30,
+    fontFamily: "Roboto",
+    paddingBottom: 250,
     textAlign: "center",
+  },
+  smallText: {
+    fontSize: 15,
   },
   boldText: {
     fontWeight: "bold",
